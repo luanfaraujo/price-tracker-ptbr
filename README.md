@@ -59,7 +59,7 @@ Embora atualmente focado em um único varejista, a arquitetura foi projetada par
 ---
 
 ## Ferramentas e Habilidades Demonstradas
-- **Web Scraping:** requests, BeautifulSoup, correspondência de padrões regex, técnicas de contorno de anti-bot
+- **Web Scraping:** requests, correspondência de padrões regex, técnicas de contorno de anti-bot
 - **Gerenciamento de Banco de Dados:** SQLite, design de esquema, normalização, chaves estrangeiras, consultas parametrizadas
 - **Automação:** Agendador de Tarefas do Windows, logging, tratamento de erros, execução programada
 - **Segurança de Dados:** Prevenção de injeção SQL, tratamento adequado de erros, validação de entrada
