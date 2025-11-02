@@ -1,19 +1,19 @@
 # Rastreador Automático de Preços de E-Commerce
-Um projeto independente desenvolvido para automatizar o monitoramento diário de preços de produtos do site de e-commerce KaBuM!. Construído usando Python, SQLite e Agendador de Tarefas do Windows para eliminar a verificação manual de preços e possibilitar decisões de compra baseadas em dados.
+Um projeto independente desenvolvido para automatizar o monitoramento diário de preços de produtos dos seguintes sites de e-commerce: KaBuM!, Mercado Livre. Construído usando Python, SQLite e Agendador de Tarefas do Windows para eliminar a verificação manual de preços e possibilitar decisões de compra baseadas em dados.
 
-_If you prefer the English version of this project, [click here](https://github.com/luanfaraujo/modpack-comparison-en)._
+_If you prefer the English version of this project, [click here](https://github.com/luanfaraujo/price-tracker-en)._
 
 ---
 
 ## Visão Geral
-Este projeto demonstra como web scraping e automação de banco de dados podem resolver problemas do mundo real. O sistema coleta automaticamente dados de preços de produtos diariamente da KaBuM! (um site de e-commerce brasileiro), armazena em um banco de dados SQLite normalizado e mantém registros históricos para análise de tendências.
+Este projeto demonstra como web scraping e automação de banco de dados podem resolver problemas do mundo real. O sistema coleta automaticamente dados de preços de produtos diariamente dos seguintes sites de e-commerce: KaBuM!, Mercado Livre, armazena em um banco de dados SQLite normalizado e mantém registros históricos para análise de tendências.
 
-Embora atualmente focado em um único varejista, a arquitetura foi projetada para ser extensível a outros sites. As técnicas centrais - web scraping, design de banco de dados e automação - se aplicam amplamente a cenários de inteligência competitiva, pesquisa de mercado e monitoramento de preços em diversos setores.
+Atualmente suporta KaBuM! e Mercado Livre, com arquitetura projetada para ser extensível a varejistas adicionais. As técnicas centrais—web scraping, design de banco de dados e automação—se aplicam amplamente a cenários de inteligência competitiva, pesquisa de mercado e monitoramento de preços em diversos setores.
 
 ---
 
 ## Objetivos
-- Automatizar a coleta diária de preços de produtos do site de e-commerce KaBuM!.
+- Automatizar a coleta diária de preços de produtos de sites de e-commerce.
 - Armazenar dados históricos de preços em um banco de dados estruturado e consultável.
 - Contornar sistemas de detecção de bots usando cabeçalhos HTTP apropriados.
 - Permitir execução automatizada sem intervenção manual.
@@ -25,9 +25,9 @@ Embora atualmente focado em um único varejista, a arquitetura foi projetada par
 ## Processo
 
 ### 1. Desenvolvimento do Web Scraping
-- Análise da estrutura HTML do site KaBuM! para localizar dados de preços.
+- Análise das estruturas HTML dos sites (KaBuM! e Mercado Livre) para localizar dados de preços.
 - Implementação de cabeçalhos HTTP para imitar requisições de navegador e contornar detecção de bots.
-- Uso de expressões regulares para extrair preços de dados JSON incorporados no HTML.
+- Uso de expressões regulares específicas por site para extrair preços de dados JSON incorporados no HTML.
 - Construção de tratamento de erros para requisições falhas e padrões de dados ausentes.
 
 ### 2. Design do Banco de Dados
@@ -51,7 +51,7 @@ Embora atualmente focado em um único varejista, a arquitetura foi projetada par
 ---
 
 ## Resultados e Insights
-- Coleta diária de preços do KaBuM! automatizada com sucesso, eliminando ~5 minutos de trabalho manual por dia.
+- Coleta diária de preços de dois grandes sites de e-commerce brasileiros automatizada com sucesso, eliminando ~15 minutos de trabalho manual por dia.
 - Banco de dados histórico construído, possibilitando análise de tendências de preços e identificação do momento ideal de compra.
 - Execução confiável alcançada através de configuração adequada de automação e recuperação de erros.
 - Base de dados escalável criada, suportando múltiplos produtos.
@@ -67,14 +67,25 @@ Embora atualmente focado em um único varejista, a arquitetura foi projetada par
 
 ---
 
+## Varejistas Suportados
+- **KaBuM!**: Rastreamento completo de preços (original, à vista, parcelado)
+- **Mercado Livre**: Rastreamento de preços (à vista e parcelado)
+
+Cada varejista requer:
+- Padrões regex personalizados para extração de preços
+- Cabeçalhos HTTP específicos por site
+- Tratamento de estrutura de URL única
+
+---
+
 ## Limitações Atuais e Melhorias Futuras
 **Escopo Atual:**
-- Funciona especificamente com a estrutura do site KaBuM!
-- Padrão regex adaptado ao formato de preços JSON incorporado do KaBuM!
-- Implementação de varejista único
+- Atualmente suporta KaBuM! e Mercado Livre
+- Padrões regex específicos necessários para cada varejista
+- Diferentes formatos de URL entre varejistas
 
 **Melhorias Planejadas:**
-- Suporte a múltiplos varejistas com adaptadores de scraping específicos por site
+- Expandir para varejistas adicionais
 - Alertas por e-mail de queda de preço quando produtos atingem valores-alvo
 - Dashboard de visualização de dados mostrando tendências de preços ao longo do tempo
 - Comparação entre varejistas para o mesmo produto
