@@ -1,3 +1,6 @@
+*2025-11-08 - 1.2*
+- Código reescrito para utilizar funções ao invés de um loop.
+
 *2025-10-30 - 1.1*
 - Rastreamento de preços do Mercado Livre adicionado.
 
